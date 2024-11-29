@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using UnityEditor.Experimental.AssetImporters;
+
 
 namespace UnityEditor.ShaderGraph
 {
-    [ScriptedImporter(22, Extension, 1)]
-    class ShaderGraphImporter : ScriptedImporter
+    [UnityEditor.AssetImporters.ScriptedImporter(22, Extension, 1)]
+    class ShaderGraphImporter : UnityEditor.AssetImporters.ScriptedImporter
     {
         public const string Extension = "shadergraph";
 
@@ -55,7 +55,7 @@ Shader ""Hidden/GraphErrorShader2""
     Fallback Off
 }";
 
-        public override void OnImportAsset(AssetImportContext ctx)
+        public override void OnImportAsset(UnityEditor.AssetImporters.AssetImportContext ctx)
         {
             var oldShader = AssetDatabase.LoadAssetAtPath<Shader>(ctx.assetPath);
             if (oldShader != null)
